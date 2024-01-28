@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holiday Finder</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <% if (locals.location) { %>
+        <h2 class="h3 mb-3 mt-5 fw-normal text-center">Holiday Details</h2>
+        <main class="w-25 m-auto">
+            <p>Location : <%= location %></p>
+            <p>Date : <%= date %></p>
+            <p>Name : <%= name %></p>
+            <p>Day : <%= day %></p>
+        </main>
+    <% }else{ %>
+    <main class="w-25 m-auto">
+        <form action="/submit" method="POST">
+          <h1 class="h3 mb-3 mt-5 fw-normal text-center">Holiday Finder</h1>
+          <p>Example: IN 01 26</p>
+          <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="country" name="country">
+            <label for="country">Country</label>
+          </div>
+          <div class="form-floating mb-2">
+            <input type="number" class="form-control" id="month" name="month">
+            <label for="month">Month</label>
+          </div>
+          <div class="form-floating">
+            <input type="number" class="form-control" id="day" name="day">
+            <label for="day">Day</label>
+          </div>
+          <button class="btn btn-primary w-100 py-2 mt-2" type="submit">Submit</button>
+        </form>
+      </main>
+    <% } %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
